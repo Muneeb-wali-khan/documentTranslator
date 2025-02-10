@@ -1,0 +1,113 @@
+پاکستان میں خوش آمدید
+ آوازMuneeb Wali Khan
+
+Backend Developer (Node.js)
+
+0322-9167205 | muneebwali809@gmail.com | Sadda, District Kurram
+
+
+
+
+
+Summary­­
+
+A dedicated MERN Stack Developer with 1.9 years of experience in building scalable backend architectures and full-stack applications. Proficient in Node.js, Express.js, MongoDB, and React.js, with a strong understanding of RESTful API design, authentication, and database management. Passionate about writing clean, efficient, and maintainable code while continuously learning new technologies.
+
+
+
+Skills
+
+Backend Development: Node.js, Express.js, MongoDB, Mongoose
+
+
+
+Frontend Development: React.js, JavaScript, React Native
+
+
+
+Database Management: MongoDB, Mongoose ODM
+
+
+
+API Development: RESTful APIs, JWT Authentication
+
+
+
+Version Control & Deployment: Git, GitHub, Postman, Firebase
+
+
+
+Tools & Libraries: Visual Studio Code, React Native Paper, Reanimated
+
+
+
+Soft Skills: Problem-solving, quick learning, and effective communication
+
+
+
+
+
+Experience
+
+Self-Taught Developer | 1.9 Years
+
+
+
+Designed and implemented backend architectures for multiple applications.
+
+
+
+Developed School Management System backend, handling user authentication, student data, and real-time updates.
+
+
+
+Built a full-featured e-commerce backend with product management, cart functionality, and order processing.
+
+
+
+Developed Blood Bank backend (Osmania BBF) for donor registration and request management.
+
+
+
+Integrated JWT authentication and role-based access control in applications for secure access.
+
+
+
+Optimized MongoDB queries for better performance and scalability.
+
+
+
+
+
+
+
+
+
+
+
+
+
+Education
+
+Diploma in IT (DIT), Govt Technical College, Sadda, Parachinar			   [2022-23]                        
+
+Diploma in Electrical (DAE), Govt Technical College, Sadda, Parachinar			   [2021-24]    
+
+                    
+
+Projects
+
+School Management System Backend – Developed RESTful APIs to manage students, teachers, and attendance.
+
+E-commerce Backend – Built a complete backend with authentication, cart management, and payment integration.
+
+Osmania Blood Bank Backend – Designed an API for donor registration, blood request processing, and user authentication.
+
+Currency Converter App (React Native) – Implemented real-time currency exchange functionality with history tracking.
+
+QR Code Scanner & Generator (React Native) – Built a QR scanner and generator with additional security features.
+
+
+
+
+
