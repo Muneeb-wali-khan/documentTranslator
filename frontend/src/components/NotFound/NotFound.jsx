@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Home() {
+const NotFound = () => {
   return (
     <div>
-      Home Translator
+      Not Found
     </div>
   )
 }
 
-export default Home
+export default NotFound

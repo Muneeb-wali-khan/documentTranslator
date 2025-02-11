@@ -8,7 +8,7 @@ import { asyncHandler } from "../utils/asyncHandler.js";
 // cookie oprions
 const cookieOptions = {
   httpOnly: true,
-  secure: true, // false because i don't have https ssl
+  secure: false, // false because i don't have https ssl
   // secure: true, // false because i don't have https ssl
   sameSite: "None",
   maxAge: 24 * 60 * 60 * 1000, // 1 day
@@ -61,7 +61,7 @@ const loginUser = asyncHandler(async (req, res) => {
     .status(200)
     .cookie("token", token, cookieOptions)
     .json(
-      new ApiResponse(200, { user: logedinUser }, "User logged in successfully")
+      new ApiResponse(200, { user: logedinUser,token }, "User logged in successfully")
     );
 });
 
