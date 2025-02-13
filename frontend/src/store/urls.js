@@ -10,8 +10,15 @@ export const endpoints = {
         logout: `${auth}/logout-user`,
     },
     document_points:{
-        create: `${documents}/create-document`,
-        get: `${documents}/get-document`,
+        user_point:{
+            get: `${documents}/my-documents`,
+            upload: `${documents}/upload-document`,
+        },
+        translator_point:{
+            get: `${documents}/all-documents`,
+            translate: `${documents}/translate-document/`,
+            certify: `${documents}/certify-document`,
+        }
     },
     user_points:{
         get: `${users}/user-me`,

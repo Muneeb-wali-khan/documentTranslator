@@ -1,11 +1,10 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { FaHome, FaExclamationTriangle } from 'react-icons/fa';
+import { FaExclamationTriangle } from 'react-icons/fa';
 
 const NotFound = () => {
 
   return (
-    <div className="h-full flex items-center justify-center  px-4">
+    <div className="flex items-center justify-center px-4 h-full">
       <div className="text-center">
         <div className="flex justify-center mb-8">
           <FaExclamationTriangle className="text-6xl text-red-500 animate-bounce" />

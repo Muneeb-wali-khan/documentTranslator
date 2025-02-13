@@ -7,7 +7,7 @@ import DashboardT from "./DashboardT";
 import AllDocuments from "./AllDocs/AllDocuments";
 import SideBarTranslator from "../../components/SideBarTranslator/SideBarTranslator";
 import NotFound from "../../components/NotFound/NotFound";
-
+import Profile from "../../components/Profile/Profile";
 
 function HomeTranslator() {
   return (
@@ -20,6 +20,7 @@ function HomeTranslator() {
           <Routes>
             <Route path="/dashboard" element={<DashboardT />} />
             <Route path="/allDocuments" element={<AllDocuments />} />
+            <Route path="/profile" element={<Profile />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

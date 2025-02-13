@@ -1,7 +1,7 @@
 import { Route } from "react-router-dom";
 import React, { lazy, Suspense } from "react";
 import { Router, Routes, BrowserRouter } from "react-router-dom";
-import Loader from "./components/Loader";
+import LoaderWeb from "./components/LoaderWeb";
 import Login from "./components/Login/Login";
 import { Toaster } from "react-hot-toast";
 
@@ -20,7 +20,7 @@ function App() {
       <Suspense
         fallback={
           <>
-            <Loader />
+            <LoaderWeb />
           </>
         }
       >

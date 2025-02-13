@@ -1,8 +1,9 @@
 import React from 'react'
+import MyDocs from './myDocs/MyDocs'
 function DashboardU() {
   return (
     <div>
-      user dashbaord
+    <MyDocs/>
     </div>
   )
 }

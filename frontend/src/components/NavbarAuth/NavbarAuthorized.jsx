@@ -5,12 +5,11 @@ import { useUserDetailsQuery } from "../../store/Features/user.feature";
 import { useLogout } from "../../hooks/Logout";
 
 const NavbarAuthorized = () => {
-  const {logout, isloggingout} = useLogout()
+  const { logout, isloggingout } = useLogout();
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const navigation = useNavigate();
   const { data: userData } = useUserDetailsQuery();
   const dropdownRef = useRef(null);
-
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -27,7 +26,14 @@ const NavbarAuthorized = () => {
     {
       label: "Profile",
       icon: FaUserCircle,
-      action: () => navigation("/profile"),
+      action: () =>
+        navigation(
+          userData?.data?.role === "admin"
+            ? "/adminPanel/profile"
+            : userData?.data?.role === "translator"
+            ? "/translatorPanel/profile"
+            : "/userPanel/profile"
+        ),
     },
     { label: "Settings", icon: FaCog, action: () => navigation("/settings") },
     {
@@ -43,9 +49,13 @@ const NavbarAuthorized = () => {
         <div className="flex items-center">
           {/* Left space for sidebar toggle on mobile */}
           <div className="w-12 md:w-0" />
-          <h1 className="text-white font-bold text-xl ml-4">{
-            userData?.data?.role === "admin" ? "Dashboard Admin" :  userData?.data?.role === "translator" ? "Dashboard Translator" : "Dashboard User" 
-            }</h1>
+          <h1 className="text-white font-bold text-xl ml-4">
+            {userData?.data?.role === "admin"
+              ? "Dashboard Admin"
+              : userData?.data?.role === "translator"
+              ? "Dashboard Translator"
+              : "Dashboard User"}
+          </h1>
         </div>
 
         <div className="relative" ref={dropdownRef}>
@@ -55,7 +65,7 @@ const NavbarAuthorized = () => {
           >
             <FaUserCircle className="text-white text-2xl" />
             <span className="hidden md:block text-white font-medium">
-              {userData?.data?.username || "User"}
+              {userData?.data?.username?.slice(0,10) + "..." || "User"}
             </span>
           </button>
 
