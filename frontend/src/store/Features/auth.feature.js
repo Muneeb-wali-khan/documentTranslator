@@ -12,18 +12,27 @@ export const AuthApi = createApi({
             query: (user) => ({
                 url: endpoints.auth_points.login,
                 method: "POST",
-                body: user
+                body: user,
+                credentials: 'include',
             })
         }),
         register: builder.mutation({
             query: (user) => ({
                 url: endpoints.auth_points.register,
                 method: "POST",
-                body: user
+                body: user,
+                credentials: 'include',
+            })
+        }),
+        logoutUser: builder.mutation({
+            query: () => ({
+                url: endpoints.auth_points.logout,
+                method: "POST",
+                credentials: 'include',
             })
         })
 
     })
 })
 
-export const {useLoginMutation}  = AuthApi
+export const {useLoginMutation, useLogoutUserMutation}  = AuthApi

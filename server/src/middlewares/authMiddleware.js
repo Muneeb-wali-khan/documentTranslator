@@ -17,7 +17,7 @@ export const authenticateUser = asyncHandler(async (req, res, next) => {
     const user = await UserModel.findById(decodedToken?._id).select(
       "-password"
     );
-console.log(user);
+// console.log(user);
 
     if (!user) {
       throw new ApiError(401, "invalid token !");

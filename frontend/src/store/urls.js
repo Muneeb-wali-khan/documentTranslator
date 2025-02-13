@@ -14,7 +14,7 @@ export const endpoints = {
         get: `${documents}/get-document`,
     },
     user_points:{
-        get: `${users}/get-user`,
+        get: `${users}/user-me`,
         update: `${users}/update-user`,
         delete: `${users}/delete-user`,
     }

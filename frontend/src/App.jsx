@@ -11,6 +11,8 @@ const HomeTranslator = lazy(() => import("./pages/translator/HomeTranslator"));
 const HomeUser = lazy(() => import("./pages/user/HomeUser"));
 const NotFound = lazy(() => import("./components/NotFound/NotFound"));
 
+export const THEME_COLOR = `#E83D3D`
+
 function App() {
   return (
     <BrowserRouter>

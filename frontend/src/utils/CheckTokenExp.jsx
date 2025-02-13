@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { jwtDecode } from "jwt-decode";
 import { useLocation, useNavigate } from "react-router-dom";
 
-const CheckTokenExp = ({ setvalidUser, validUser, setRole }) => {
+const CheckTokenExp = ({ setvalidUser, setRole }) => {
   const navigation = useNavigate();
   const location = useLocation();
 
@@ -10,15 +10,15 @@ const CheckTokenExp = ({ setvalidUser, validUser, setRole }) => {
   const roleAccess = {
     admin: {
       paths: ["/adminPanel"],
-      defaultRedirect: "/adminPanel"
+      defaultRedirect: "/adminPanel/dashboard"
     },
     translator: {
       paths: ["/translatorPanel"],
-      defaultRedirect: "/translatorPanel"
+      defaultRedirect: "/translatorPanel/dashboard"
     },
     user: {
       paths: ["/userPanel"],
-      defaultRedirect: "/userPanel"
+      defaultRedirect: "/userPanel/dashboard"
     }
   };
 
