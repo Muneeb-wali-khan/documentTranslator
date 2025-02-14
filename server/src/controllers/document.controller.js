@@ -87,7 +87,11 @@ const specificUserDocuments = asyncHandler(async (req, res) => {
 });
 
 const translateDocument = asyncHandler(async (req, res) => {
+  const {status} = req.body
   const id = req.params.id;
+
+  // console.log(status, id);
+  
   const userId = req.user?._id;
   if (!id) {
     throw new ApiError(400, "Document ID is required");
@@ -113,7 +117,7 @@ const translateDocument = asyncHandler(async (req, res) => {
 
   if (result?.text) {
     document.translatedText = result.text;
-    document.status = "translated";
+    document.status = status;
     await document.save();
   }
 
@@ -133,8 +137,9 @@ const translateDocument = asyncHandler(async (req, res) => {
 });
 
 const certifyDocument = asyncHandler(async (req, res) => {
-  const { documentId } = req.body;
+  const { documentId, certificationStatus } = req.body;
   const translatorId = req?.user?._id;
+// console.log(req.body);
 
   if (!documentId || !translatorId) {
     throw new ApiError(400, "Document ID and translator ID are required");
@@ -144,13 +149,13 @@ const certifyDocument = asyncHandler(async (req, res) => {
   if (!document) throw new ApiError(404, "Document not found");
 
   // check if the docment is already certified
-  if (document?.certificationStatus === "approved") {
+  if (document?.certificationStatus === "approved" || document?.certificationStatus === "rejected") {
     throw new ApiError(400, "Document already certified");
   }
 
   // certify document
   document.certifiedBy = translatorId;
-  document.certificationStatus = "approved";
+  document.certificationStatus = certificationStatus;
   await document.save();
 
   return res

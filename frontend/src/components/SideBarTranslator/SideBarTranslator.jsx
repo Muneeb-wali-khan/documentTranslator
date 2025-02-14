@@ -47,7 +47,7 @@ const SidebarTranslator = () => {
 
       {/* Sidebar */}
       <div className={`
-        fixed  left-0 h-full z-40 transition-transform duration-300
+        fixed  left-0  z-40 transition-transform duration-300
         md:translate-x-0 md:relative
         ${isOpen ? 'translate-x-0' : '-translate-x-full'}
         min-h-screen w-64 bg-gray-900 text-gray-100 py-6 px-4

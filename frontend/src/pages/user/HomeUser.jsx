@@ -7,6 +7,7 @@ import NavbarAuthorized from "../../components/NavbarAuth/NavbarAuthorized";
 import MyDocs from "./myDocs/MyDocs";
 import Profile from "../../components/Profile/Profile";
 import NotFound from "../../components/NotFound/NotFound";
+import UploadFile from "./uploadFile/UploadFile";
 
 function HomeUser() {
   return (
@@ -20,6 +21,7 @@ function HomeUser() {
             <Route path="/dashboard" element={<DashboardU />} />
             <Route path="/mydocuments" element={<MyDocs />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/uploadfile" element={<UploadFile />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

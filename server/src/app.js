@@ -22,11 +22,13 @@ app.use(morgan("dev"));
 import userRouter from "./routes/user.route.js";
 import authRouter from "./routes/auth.route.js";
 import documentRouter from "./routes/document.route.js";
+import translationLogsRouter from "./routes/translationlogs.route.js";
 
 // use routes
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/document", documentRouter);
 app.use("/api/v1/auth", authRouter);
+app.use("/api/v1/logs", translationLogsRouter);
 
 
 // middleware to show error response in json send to client

@@ -7,9 +7,9 @@ import {
   FaClock,
   FaCheckCircle,
   FaTimesCircle,
-  FaArrowAltCircleLeft,
 } from "react-icons/fa";
 import Loader from "../Loader/Loader";
+import BackButton from "../backButton/BackButton";
 
 const Profile = () => {
   const { data: userData, isLoading } = useUserDetailsQuery();
@@ -31,14 +31,7 @@ const Profile = () => {
       <div className=" bg-gray-100 py-8 px-4">
       {userData?.data?.role === "user" && (
         // button back
-        <div className="flex justify-start mb-6 pl-4">
-          <button
-            className="bg-blue-500 flex items-center gap-1 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-            onClick={() => window.history.back()}
-          >
-            <FaArrowAltCircleLeft /> Back
-          </button>
-        </div>
+        <BackButton/>
       )}
         <div className="max-w-4xl mx-auto">
           {/* Profile Header */}
@@ -112,7 +105,7 @@ const Profile = () => {
                       </p>
                     </div>
                   </div>
-                  <button className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors">
+                  <button className="px-4 py-2 text-sm font-medium text-white bg-themeColor rounded-lg hover:bg-gray-700 transition-colors">
                     {userData.data.mfaEnabled ? "Disable" : "Enable"}
                   </button>
                 </div>
@@ -122,7 +115,7 @@ const Profile = () => {
 
           {/* Account Actions */}
           <div className="mt-6 flex flex-col sm:flex-row gap-4">
-            <button className="px-6 py-3 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors w-full sm:w-auto">
+            <button className="px-6 py-3 text-sm font-medium text-white bg-themeColor rounded-lg hover:bg-gray-700 transition-colors w-full sm:w-auto">
               Edit Profile
             </button>
             <button className="px-6 py-3 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors w-full sm:w-auto">

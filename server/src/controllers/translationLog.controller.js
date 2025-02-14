@@ -1,10 +1,24 @@
-import { TranslationLogModel } from "../models/TranslationLog";
+import { TranslationLogModel } from "../models/TranslationLog.js";
+import ApiError from "../utils/ApiError.js";
+import ApiResponse from "../utils/ApiResponse.js";
+import { asyncHandler } from "../utils/asyncHandler.js";
 
-const getTranslationLogs = async (req, res) => {
+const getTranslationLogs = asyncHandler(async(req, res) => {
   try {
-    const logs = await TranslationLogModel.find({}).populate("userId documentId");
-    res.status(200).json({ logs });
+    const logs = await TranslationLogModel.find({}).populate(
+      "userId",
+      "username email"
+    ).populate(
+      "documentId",
+      "originalFileName sourceLanguage targetLanguage status"
+    ).sort({ createdAt: -1 });
+    
+    return res.status(200).json(
+      new ApiResponse(200, logs, "Translation logs fetched successfully")
+    )
   } catch (error) {
-    res.status(500).json({ error: "Error fetching translation logs" });
+    throw new ApiError(500, error?.message)
   }
-};
+});
+
+export {getTranslationLogs}

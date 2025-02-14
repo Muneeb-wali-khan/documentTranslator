@@ -2,6 +2,7 @@ export const baseUrl = "http://localhost:4000/api/v1";
 export const documents = `${baseUrl}/document`
 export const users = `${baseUrl}/user`
 export const auth = `${baseUrl}/auth`
+export const logs = `${baseUrl}/logs`
 
 export const endpoints = {
     auth_points:{
@@ -18,7 +19,11 @@ export const endpoints = {
             get: `${documents}/all-documents`,
             translate: `${documents}/translate-document/`,
             certify: `${documents}/certify-document`,
-        }
+        },
+        logs_point:{
+            get: `${logs}/translation-logs`,
+        },
+
     },
     user_points:{
         get: `${users}/user-me`,
