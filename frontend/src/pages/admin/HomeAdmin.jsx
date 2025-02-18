@@ -8,6 +8,7 @@ import SideBarAdmin from "../../components/SideBarAdmin/SideBarAdmin";
 import AllUsers from "./AllUsers/AllUsers";
 import NotFound from "../../components/NotFound/NotFound";
 import Profile from "../../components/Profile/Profile";
+import HistoryLogs from "./HistoryLogs/HistoryLogs";
 function HomeAdmin() {
   return (
     <div className="min-h-screen">
@@ -19,6 +20,7 @@ function HomeAdmin() {
           <Routes>
             <Route path="/dashboard" element={<DashBoardA />} />
             <Route path="/allUsers" element={<AllUsers />} />
+            <Route path="/historylogs" element={<HistoryLogs />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

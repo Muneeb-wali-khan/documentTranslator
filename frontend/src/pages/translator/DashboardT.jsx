@@ -15,7 +15,7 @@ function DashboardT() {
   const totalRequestsPendings =
     AllDocuments?.data.filter((doc) => doc.status === "pending").length || 0;
   const totalRejected =
-    AllDocuments?.data.filter((doc) => doc.status === "failed").length || 0;
+    AllDocuments?.data.filter((doc) => doc.certificationStatus === "rejected").length || 0;
   const totalApproved =
     AllDocuments?.data.filter((doc) => doc.status === "translated").length || 0;
 

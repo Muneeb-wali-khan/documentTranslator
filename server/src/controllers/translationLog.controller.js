@@ -10,7 +10,7 @@ const getTranslationLogs = asyncHandler(async(req, res) => {
       "username email"
     ).populate(
       "documentId",
-      "originalFileName sourceLanguage targetLanguage status"
+      "originalFileName originalText translatedText sourceLanguage targetLanguage status"
     ).sort({ createdAt: -1 });
     
     return res.status(200).json(

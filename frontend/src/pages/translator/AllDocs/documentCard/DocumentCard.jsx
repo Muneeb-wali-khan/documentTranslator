@@ -267,8 +267,11 @@ function DocumentCard({ currentDocuments }) {
               )}
               {doc.status === "pending" && (
                 <button
+                  disabled={
+                    doc.certificationStatus === "rejected" ? true : false
+                  }
                   onClick={() => handlTranslate(doc._id)}
-                  className="px-4 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+                  className={`px-4 py-1 bg-blue-500 ${doc.certificationStatus === "rejected" ? 'opacity-20' : ' opacity-100 '} text-white rounded hover:bg-blue-600 transition-colors`}
                 >
                   Translate
                 </button>

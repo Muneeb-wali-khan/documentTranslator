@@ -65,8 +65,20 @@ const uploadDocument = asyncHandler(async (req, res) => {
     .status(201)
     .json(new ApiResponse(201, document, "Document uploaded successfully"));
 });
+
 // --translator
 const allDocuments = asyncHandler(async (req, res) => {
+  const documents = await DocumentModel.find()
+    .populate("userId", "username email")
+    .sort({ createdAt: -1 });
+  if (!documents) throw new ApiError(404, "Documents not found");
+  return res
+    .status(200)
+    .json(new ApiResponse(200, documents, "Documents fetched successfully"));
+});
+
+// --admin
+const allDocumentsAdmin = asyncHandler(async (req, res) => {
   const documents = await DocumentModel.find()
     .populate("userId", "username email")
     .sort({ createdAt: -1 });
@@ -163,4 +175,4 @@ const certifyDocument = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, document, "Document certified successfully"));
 });
 
-export { uploadDocument, translateDocument, allDocuments, certifyDocument,specificUserDocuments };
+export { uploadDocument, translateDocument, allDocuments, certifyDocument,specificUserDocuments,allDocumentsAdmin };

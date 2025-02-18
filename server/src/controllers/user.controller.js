@@ -19,7 +19,7 @@ const updateUserRole = asyncHandler(async (req, res) => {
 
   const user = await UserModel.findByIdAndUpdate(
     userid,
-    { role },
+    { role: role },
     { new: true }
   );
   if (!user) throw new ApiError(404, "User not found");
@@ -32,6 +32,7 @@ const updateUserRole = asyncHandler(async (req, res) => {
 // --admin
 const deleteUser = asyncHandler(async (req, res) => {
   const id = req.params.id;
+console.log(id);
 
   if (!id) throw new ApiError(400, "User ID is required");
   if (req.user?._id?.toString() === id)
@@ -42,7 +43,7 @@ const deleteUser = asyncHandler(async (req, res) => {
   if (findUser?.role === "admin")
     throw new ApiError(400, "You cannot delete an admin");
 
-  const user = await UserModel.findByIdAndDelete(id);
+  // const user = await UserModel.findByIdAndDelete(id);
 
   return res
     .status(200)

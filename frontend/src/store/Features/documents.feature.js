@@ -4,7 +4,7 @@ import { baseUrl, endpoints } from "../urls";
 export const DocumentApi = createApi({
   reducerPath: "documentApi",
   baseQuery: fetchBaseQuery({ baseUrl: baseUrl }),
-  tagTypes: ["DocumentU", "DocumentT", "LogsA"],
+  tagTypes: ["DocumentU", "DocumentT", "LogsA", "DocumentsA"],
   endpoints: (builder) => ({
     // user
     myDocumentsU: builder.query({
@@ -64,6 +64,16 @@ export const DocumentApi = createApi({
       }),
       providesTags: ["LogsA"],
     }),
+
+    // admin
+    allDocumentsA: builder.query({
+      query: () => ({
+        url: endpoints.document_points.admin_point.get,
+        method: "GET",
+        credentials: "include",
+      }),
+      providesTags: ["DocumentsA"],
+    }),
   }),
 });
 
@@ -73,5 +83,7 @@ export const {
   useAllDocumentsTQuery,
   useTranslateDocumentTMutation,
   useCertifyDocumentTMutation,
-  useAllLogsAQuery
+  useAllLogsAQuery,
+
+  useAllDocumentsAQuery
 } = DocumentApi;

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import {
   FaUser,
-  FaChartBar,
+  FaHistory,
   FaBox,
   FaClipboardList,
   FaCog,
@@ -22,10 +22,10 @@ const SidebarAdmin = () => {
   const menuItems = [
     { icon: MdDashboard, text: "Dashboard", path: "/adminPanel/dashboard" },
     { icon: FaUser, text: "Users", path: "/adminPanel/allUsers" },
-    { icon: FaChartBar, text: "Analytics", path: "/adminPanel/analytics" },
-    { icon: FaBox, text: "Products", path: "/adminPanel/products" },
-    { icon: FaClipboardList, text: "Orders", path: "/adminPanel/orders" },
-    { icon: FaCog, text: "Settings", path: "/adminPanel/settings" },
+    { icon: FaHistory, text: "History", path: "/adminPanel/historylogs" },
+    { icon: FaBox, text: "Random1", path: "/adminPanel/products" },
+    { icon: FaClipboardList, text: "Random2", path: "/adminPanel/orders" },
+    { icon: FaCog, text: "Random3", path: "/adminPanel/settings" },
   ];
 
   const toggleSidebar = () => setIsOpen(!isOpen);
@@ -55,9 +55,9 @@ const SidebarAdmin = () => {
       {/* Sidebar */}
       <div
         className={`
-        fixed  left-0 h-full z-40 transition-transform duration-300
+        fixed  left-0  z-40 transition-transform duration-300
         md:translate-x-0 md:relative
-        ${isOpen ? "translate-x-0" : "-translate-x-full"}
+        ${isOpen ? 'translate-x-0' : '-translate-x-full'}
         min-h-screen w-64 bg-gray-900 text-gray-100 py-6 px-4
       `}
       >

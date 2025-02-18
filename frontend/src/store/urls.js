@@ -23,11 +23,20 @@ export const endpoints = {
         logs_point:{
             get: `${logs}/translation-logs`,
         },
+        admin_point:{
+            get: `${documents}/all-docs`,
+        },
 
     },
     user_points:{
         get: `${users}/user-me`,
-        update: `${users}/update-user`,
-        delete: `${users}/delete-user`,
+        update: `${users}/update-profile`,
+        updatepassword: `${users}/update-password`,
+
+        admin_points:{
+            get: `${users}/all-users`,
+            update: `${users}/update-user-role/`,
+            delete: `${users}/remove-user/`,
+        }
     }
 }

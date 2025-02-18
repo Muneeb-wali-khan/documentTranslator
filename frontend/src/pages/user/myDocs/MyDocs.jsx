@@ -14,6 +14,10 @@ function MyDocs() {
   const [searchTerm, setSearchTerm] = useState("");
   const [statusFilter, setStatusFilter] = useState("all");
   const [certifyStatusFilter, setCertifyStatusFilter] = useState("all");
+  const [seeMore, setSeeMore] = useState(false);
+  const [seeMoreT, setSeeMoreT] = useState(false);
+  const [currentInd, setCurrentInd] = useState(null);
+  const [currentIndT, setCurrentIndT] = useState(null);
   const itemsPerPage = 5;
 
   const formatDate = (dateString) => {
@@ -120,7 +124,7 @@ function MyDocs() {
 
         {/* Documents List */}
         <div className="space-y-8">
-          {currentDocuments.map((doc) => (
+          {currentDocuments.map((doc,index) => (
             <div
               key={doc._id}
               className="bg-themeColor rounded-lg shadow-lg overflow-hidden"
@@ -173,8 +177,43 @@ function MyDocs() {
                       <h4 className="text-sm font-medium text-gray-400 mb-1">
                         Original Text:
                       </h4>
-                      <p style={{ whiteSpace: 'pre-line' }} className="text-sm text-gray-600 bg-gray-100 p-3 rounded">
-                        {doc.originalText}
+                      <p
+                        style={{ whiteSpace: "pre-line" }}
+                        className="text-sm text-gray-600 bg-gray-100 p-3 rounded"
+                      >
+                        {doc.originalText.length > 100 ? (
+                          <>
+                            {seeMore && currentInd === index ? (
+                              <>
+                                {doc.originalText}
+                                <button
+                                  onClick={() => {
+                                    setSeeMore(false);
+                                    setCurrentInd(null);
+                                  }}
+                                  className="text-blue-500 underline ml-2"
+                                >
+                                  See Less
+                                </button>
+                              </>
+                            ) : (
+                              <>
+                                {doc.originalText.slice(0, 100)}...
+                                <button
+                                  onClick={() => {
+                                    setSeeMore(true);
+                                    setCurrentInd(index);
+                                  }}
+                                  className="text-blue-500 underline ml-2"
+                                >
+                                  See More
+                                </button>
+                              </>
+                            )}
+                          </>
+                        ) : (
+                          doc.originalText
+                        )}
                       </p>
                     </div>
                   </div>
@@ -194,8 +233,43 @@ function MyDocs() {
                         Copy
                       </button>
                     </div>
-                    <p style={{whiteSpace: "pre-line"}} className="text-sm text-gray-700 bg-gray-50 p-3 rounded mt-1">
-                      {doc.translatedText}
+                    <p
+                      style={{ whiteSpace: "pre-line" }}
+                      className="text-sm text-gray-700 bg-gray-50 p-3 rounded mt-1"
+                    >
+                      {doc.translatedText.length > 100 ? (
+                        <>
+                          {seeMoreT && currentIndT === index ? (
+                            <>
+                              {doc.translatedText}
+                              <button
+                                onClick={() => {
+                                  setSeeMoreT(false);
+                                  setCurrentInd(null);
+                                }}
+                                className="text-blue-500 underline ml-2"
+                              >
+                                See Less
+                              </button>
+                            </>
+                          ) : (
+                            <>
+                              {doc.translatedText.slice(0, 100)}...
+                              <button
+                                onClick={() => {
+                                  setSeeMoreT(true);
+                                  setCurrentIndT(index);
+                                }}
+                                className="text-blue-500 underline ml-2"
+                              >
+                                See More
+                              </button>
+                            </>
+                          )}
+                        </>
+                      ) : (
+                        doc.translatedText
+                      )}
                     </p>
                   </div>
                 )}
