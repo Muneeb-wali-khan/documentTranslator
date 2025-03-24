@@ -37,8 +37,10 @@ const uploadDocument = asyncHandler(async (req, res) => {
 
     case file?.mimetype?.startsWith("image/") && file?.mimetype:
       await extractTextWithOCRSpace(file?.path).then((res) => {
-        if (res?.ParsedResults?.[0]?.ParsedText) {
-          text = res.ParsedResults[0].ParsedText;
+        // if (res?.ParsedResults?.[0]?.ParsedText) {
+        if (res) {
+          // text = res.ParsedResults[0].ParsedText;
+          text = res
         } else {
           throw new ApiError(400, res?.ErrorMessage?.[0]);
         }
